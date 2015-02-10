@@ -13,6 +13,16 @@ MecanumDrive& Main::getDrive() {
 	return getRobot().s_drive;
 }
 
+PneumaticSubsystem& Main::getPneumatics()
+{
+	return getRobot().s_pneumatics;
+}
+
+IntakeSubsystem& Main::getIntake()
+{
+	return getRobot().s_intake;
+}
+
 
 OI& Main::getOI() {
 	return getRobot().oi;
