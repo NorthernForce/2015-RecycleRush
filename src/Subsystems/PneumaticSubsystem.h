@@ -1,11 +1,12 @@
 #pragma once
 
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "SubsystemWithCommand.hpp"
 
-class PneumaticSubsystem : public SubsystemWithCommand<"command goes here">
+class PneumaticSubsystem : public SubsystemWithCommand<void>
 {
 	public:
+		PneumaticSubsystem();
 
 	private:
 

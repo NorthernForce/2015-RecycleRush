@@ -64,6 +64,8 @@ enum JagCANAdress {
 	kBackLeftTalon = 2, //6,
 	kBackRightTalon = 3, //3,
 
+	kIntakeTalon = 4,
+
 	//kFrontLeftMotor = 0,
 	//kFrontRightMotor = 1,
 	//kRearLeftMotor = 2,
@@ -89,10 +91,8 @@ enum JoystickPort {
 enum RelayPort {
 	kCompressorModule = 1,
 	kCompressorRelay = 1,
-	kShooterModule = 1,
-	kShooterRelay = 3,
-	kPickupModule = 1,
-	kPickupRelay = 2,
+	kIntakeModule = 1,
+	kIntakeRelay = 2,
 };
 
 enum DigitalIOPort {

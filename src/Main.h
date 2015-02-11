@@ -21,10 +21,10 @@ public:
 
 private:
 	LiveWindow 		   *lw;
-	MecanumDrive  	   s_drive;
-	PneumaticSubsystem s_pneumatics;
-	IntakeSubsystem    s_intake;
-	OI				   oi;
+	MecanumDrive  	   m_drive;
+	PneumaticSubsystem m_pneumatics;
+	IntakeSubsystem    m_intake;
+	OI				   m_oi;
 
 
 	virtual void RobotInit();
