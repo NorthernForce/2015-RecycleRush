@@ -4,30 +4,32 @@
 
 IntakeSubsystem::IntakeSubsystem() :
 
-	SubsystemWithCommand<void>("IntakeSubsystem"),
-	m_IntakeTalon(kIntakeTalon),
-	m_IntakeRelay(kIntakeRelay, Relay::kBothDirections)
+	Subsystem("IntakeSubsystem"),
+	m_IntakeTalon(kIntakeTalon)
+	//m_IntakeRelay(kIntakeRelay, Relay::kBothDirections)
 {
-	m_IntakeRelay.Set(Relay::kReverse);
+	//m_IntakeRelay.Set(Relay::kReverse);
 }
 
-void IntakeSubsystem::IntakeSetSpeed(float speed)
+void IntakeSubsystem::SetIntakeSpeed(float speed)
 {
 	m_IntakeTalon.Set(-speed);
 }
 
-void IntakeSubsystem::IntakeSetPosition(Position current)
+/*
+void IntakeSubsystem::IntakeSetPosition(IntakeMode m_mode)
 {
-	switch(current)
+	switch(IntakeMode m_mode)
 	{
-		case EXTEND:
-			m_IntakeRelay.Set(Relay::kReverse);
-			break;
-		case RETRACT:
+		case FORWARD:
 			m_IntakeRelay.Set(Relay::kForward);
+			break;
+		case REVERSE:
+			m_IntakeRelay.Set(Relay::kReverse);
 			break;
 	}
 }
+*/
 
 void IntakeSubsystem::IntakeInit()
 {

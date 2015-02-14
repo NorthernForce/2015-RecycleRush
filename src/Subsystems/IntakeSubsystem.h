@@ -3,23 +3,17 @@
 #include "WPILib.h"
 #include "SubsystemWithCommand.hpp"
 
-class IntakeSubsystem : public SubsystemWithCommand<void>
+class IntakeSubsystem : public Subsystem
 {
 	public:
 		IntakeSubsystem();
 
-		enum Position
-		{
-			EXTEND,
-			RETRACT,
-		};
-
-		void IntakeSetSpeed(float speed);
-		void IntakeSetPosition(Position current);
+		void SetIntakeSpeed(float speed);
+		//void IntakeSetPosition(IntakeMode m_mode);
 		void IntakeInit();
 
 	private:
 		Talon m_IntakeTalon;
-		Relay m_IntakeRelay;
+		//Relay m_IntakeRelay;
 
 };

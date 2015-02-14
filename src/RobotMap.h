@@ -59,12 +59,12 @@ enum Attack3JoystickPort
 
 enum JagCANAdress {
 
-	kFrontLeftTalon = 0, //4
-	kFrontRightTalon = 1, //5,
-	kBackLeftTalon = 2, //6,
-	kBackRightTalon = 3, //3,
+	kFrontLeftTalon = 1, //0, //4
+	kFrontRightTalon = 3, //1, //5,
+	kBackLeftTalon = 2, //2, //6,
+	kBackRightTalon = 4, //3, //3,
 
-	kIntakeTalon = 4,
+	kIntakeTalon = 5,
 
 	//kFrontLeftMotor = 0,
 	//kFrontRightMotor = 1,
@@ -110,7 +110,15 @@ enum AnalogIOPort
 };
 
 enum SolenoidPort {
-	kPickupSolenoid = 1,
+	kSolenoidForward1 = 1,
+	kSolenoidReverse1 = 1,
+	kSolenoidForward2 = 2,
+	kSolenoidReverse2 = 2,
+	kSolenoidForward3 = 3,
+	kSolenoidReverse3 = 3,
+	kSolenoidForward4 = 4,
+	kSolenoidReverse4 = 4,
+
 };
 
 static const float kDeadbandLimit = 0.01;
