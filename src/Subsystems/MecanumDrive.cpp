@@ -58,7 +58,7 @@ void MecanumDrive::EnableEncoders(bool invertGains)
 	// the encoder speed in rpm.
 	m_drive.SetMaxOutput(kMaxDriveRPM);
 
-	// Disable encoders, if alread enabled.
+	// Disable encoders, if already enabled.
 	// Not sure this is necessary.
 	m_frontLeft.Disable();
 	m_backLeft.Disable();
