@@ -16,15 +16,17 @@ public:
 	static PneumaticSubsystem&  getPneumatics();
 	static IntakeSubsystem&     getIntake();
 	static OI& 					getOI();
+	static LimitSwitch&			getLimit();
 
 	//static BallCmdServer& getBall();
 
 private:
 	LiveWindow 		   *lw;
-	MecanumDrive  	   s_drive;
-	PneumaticSubsystem s_pneumatics;
-	IntakeSubsystem    s_intake;
-	OI				   oi;
+	MecanumDrive  	   m_drive;
+	PneumaticSubsystem m_pneumatics;
+	IntakeSubsystem    m_intake;
+	OI				   m_oi;
+	LimitSwitch		   m_limit;
 
 
 	virtual void RobotInit();
