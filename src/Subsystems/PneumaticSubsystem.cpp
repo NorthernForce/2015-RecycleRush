@@ -7,7 +7,7 @@ PneumaticSubsystem::PneumaticSubsystem():
 		m_ToteSolenoid1(kSolenoidForward1, kSolenoidReverse1),
 		m_ToteSolenoid2(kSolenoidForward1, kSolenoidReverse1),
 		m_BinSolenoid1(kSolenoidForward3, kSolenoidReverse3),
-		m_BinSolenoid2(kSolenoidForward4, kSolenoidReverse4) {}
+		m_BinSolenoid2(kSolenoidForward3, kSolenoidReverse3) {}
 
 void PneumaticSubsystem::SetToteLifter(bool lift)
 	{

@@ -42,6 +42,12 @@ void Main::RobotInit()
 	m_oi.init();
 	m_drive.init();
 	lw = LiveWindow::GetInstance();
+	Compressor::Compressor(uint8_t );
+void Compressor::Start();
+	CameraServer::GetInstance()->SetQuality(50);
+	//the camera name (ex "cam0") can be found through the roborio web interface
+	CameraServer::GetInstance()->StartAutomaticCapture("Cam2");
+
 }
 
 void Main::AutonomousInit()
@@ -56,7 +62,8 @@ void Main::AutonomousPeriodic()
 
 void Main::TeleopInit()
 {
-
+	Compressor::Compressor();
+	void Compressor::Start();
 }
 
 void Main::TeleopPeriodic()

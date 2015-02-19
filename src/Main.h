@@ -4,6 +4,7 @@
 #include "Subsystems/MecanumDrive.h"
 #include "Subsystems/PneumaticSubsystem.h"
 #include "Subsystems/IntakeSubsystem.h"
+#include "Subsystems/LimitSwitch.h"
 #include "OI.h"
 
 class Main : public IterativeRobot {
