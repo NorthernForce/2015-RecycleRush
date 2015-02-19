@@ -30,9 +30,9 @@ catch (...)
 void MecanumDrive::init()
 {
 	m_drive.SetSafetyEnabled(false);
-	// Invert the left motors.
-	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, false);
-	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
+	// Invert the left motors and top motors because the front gearboxes invert the drive due to the gearing
+	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
 	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  false);
 	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  true);
 
@@ -58,7 +58,7 @@ void MecanumDrive::EnableEncoders(bool invertGains)
 	// the encoder speed in rpm.
 	m_drive.SetMaxOutput(kMaxDriveRPM);
 
-	// Disable encoders, if alread enabled.
+	// Disable encoders, if already enabled.
 	// Not sure this is necessary.
 	m_frontLeft.Disable();
 	m_backLeft.Disable();

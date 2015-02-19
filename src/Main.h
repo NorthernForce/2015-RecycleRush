@@ -2,6 +2,9 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "Subsystems/MecanumDrive.h"
+#include "Subsystems/PneumaticSubsystem.h"
+#include "Subsystems/IntakeSubsystem.h"
+#include "Subsystems/LimitSwitch.h"
 #include "OI.h"
 
 class Main : public IterativeRobot {
@@ -11,14 +14,21 @@ public:
 
 	static Main& 				getRobot();
 	static MecanumDrive& 		getDrive();
+	static PneumaticSubsystem&  getPneumatics();
+	static IntakeSubsystem&     getIntake();
 	static OI& 					getOI();
+	static LimitSwitch&			getLimit();
 
 	//static BallCmdServer& getBall();
 
 private:
-	LiveWindow 		*lw;
-	MecanumDrive 	s_drive;
-	OI				oi;
+	LiveWindow 		   *lw;
+	MecanumDrive  	   m_drive;
+	PneumaticSubsystem m_pneumatics;
+	IntakeSubsystem    m_intake;
+	OI				   m_oi;
+	LimitSwitch		   m_limit;
+
 
 	virtual void RobotInit();
 	virtual void AutonomousInit();
