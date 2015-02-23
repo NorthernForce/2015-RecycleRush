@@ -31,6 +31,15 @@ IntakeSubsystem& Main::getIntake()
 	return getRobot().m_intake;
 }
 
+LimitSwitch& Main::getLimit()
+{
+	return getRobot().m_limit;
+}
+
+LedDisplay& Main::getLed()
+{
+	return getRobot().m_led;
+}
 
 OI& Main::getOI()
 {
@@ -42,6 +51,11 @@ void Main::RobotInit()
 	m_oi.init();
 	m_drive.init();
 	lw = LiveWindow::GetInstance();
+
+	//CameraServer::GetInstance()->SetQuality(50);
+	//the camera name (ex "cam0") can be found through the roborio web interface
+	//CameraServer::GetInstance()->StartAutomaticCapture("Cam2"); //need to find name
+
 }
 
 void Main::AutonomousInit()

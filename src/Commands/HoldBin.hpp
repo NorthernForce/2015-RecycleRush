@@ -4,28 +4,27 @@
 #include "Main.h"
 
 
-class ConsumeTote: public Command
+class HoldBin: public Command
 {
 	public:
-		ConsumeTote()
+		HoldBin()
 		{
-			Requires(&Main::getPneumatics());
+			Requires (&Main::getPneumatics());
 		}
 
 		virtual void Initialize() {}
 
 		virtual void Execute()
 		{
-			Main::getPneumatics().SetToteLifter();
+			Main::getPneumatics().SetBinHolder();
 		}
 
 		virtual bool IsFinished() { return false; }
 
 		virtual void End()
 		{
-			Main::getPneumatics().ResetToteLifter();
+			Main::getPneumatics().ResetBinHolder();
 		}
 
 		virtual void Interrupted() {}
 };
-

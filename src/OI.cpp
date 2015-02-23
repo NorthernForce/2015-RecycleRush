@@ -2,8 +2,11 @@
 #include "Commands/SetDriveMode.hpp"
 #include "Commands/SetIntakeMode.hpp"
 #include "Commands/ExpelStack.hpp"
+#include "Commands/ConsumeTote.hpp"
+#include "Commands/OrientBin.hpp"
+#include "Commands/HoldBin.hpp"
 
-OI::OI() : m_DriverStick(kDriverStickPort) {}
+OI::OI() : m_DriverStick(kDriverStickPort), m_ManipulatorStick(kManipulatorStickPort) {}
 
 void OI::init()
 {
@@ -17,10 +20,22 @@ void OI::init()
     m_DriverStick.B.WhenPressed<SetIntakeMode<FORWARD> >();
     m_DriverStick.Start.WhenPressed<SetIntakeMode<STOPPED> >();
 
-    m_DriverStick.Back.WhenPressed<ExpelStack>();
+    m_ManipulatorStick.Button2.WhenPressed<ExpelStack>();
+    m_ManipulatorStick.Button3.WhileHeld<ConsumeTote>();
+    m_ManipulatorStick.Button4.WhenPressed<OrientBin>();
+    m_ManipulatorStick.Button5.WhileHeld<HoldBin>();
+
+    m_ManipulatorStick.Button6.WhenPressed<SetIntakeMode<REVERSE> >();
+    m_ManipulatorStick.Button7.WhenPressed<SetIntakeMode<FORWARD> >();
+    m_ManipulatorStick.Button8.WhenPressed<SetIntakeMode<STOPPED> >();
 }
 
 FRCXboxJoystick& OI::GetDriverStick()
 {
     return m_DriverStick;
+}
+
+Attack3Joystick& OI::GetManipulatorStick()
+{
+	return m_ManipulatorStick;
 }

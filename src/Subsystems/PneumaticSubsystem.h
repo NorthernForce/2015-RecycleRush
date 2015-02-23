@@ -7,13 +7,20 @@ class PneumaticSubsystem : public SubsystemWithCommand<void>
 {
 	public:
 		PneumaticSubsystem();
-		void SetToteLifter(bool lift);
-		void SetBinHolder(bool hold);
+
+		void SetBinOrienter();
+		void ResetBinOrienter();
+
+		void SetBinHolder();
+		void ResetBinHolder();
+
+		void SetToteLifter();
+		void ResetToteLifter();
+
 
 	private:
-		DoubleSolenoid 	    m_ToteSolenoid1,
-							m_ToteSolenoid2,
-							m_BinSolenoid1,
-					   	    m_BinSolenoid2;
+		DoubleSolenoid 	    m_BinOrienter;
+		DoubleSolenoid		m_BinHolder;
+		DoubleSolenoid		m_ToteLifter;
 };
 

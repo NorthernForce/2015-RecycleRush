@@ -31,8 +31,8 @@ void MecanumDrive::init()
 {
 	m_drive.SetSafetyEnabled(false);
 	// Invert the left motors.
-	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, false);
-	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
+	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
 	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  false);
 	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  true);
 

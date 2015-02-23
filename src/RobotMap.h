@@ -57,14 +57,15 @@ enum Attack3JoystickPort
 	kAttackJoystickButton12 = 12,
 };
 
-enum JagCANAdress {
+enum TalonCANAdress {
 
-	kFrontLeftTalon = 1, //0, //4
-	kFrontRightTalon = 3, //1, //5,
-	kBackLeftTalon = 2, //2, //6,
-	kBackRightTalon = 4, //3, //3,
+	kFrontLeftTalon = 2, //1, //0, //4
+	kFrontRightTalon = 1, //3, //1, //5,
+	kBackLeftTalon = 4, //2, //2, //6,
+	kBackRightTalon = 3, //4, //3, //3,
 
-	kIntakeTalon = 5,
+	kIntakeRight = 8,
+	kIntakeLeft = 7,
 
 	//kFrontLeftMotor = 0,
 	//kFrontRightMotor = 1,
@@ -82,6 +83,7 @@ enum JagCANAdress {
 //	kBackLeftTalon = 7,
 //	kFrontLeftTalon = 5,
 };
+
 
 enum JoystickPort {
     kDriverStickPort = 0,
@@ -110,14 +112,12 @@ enum AnalogIOPort
 };
 
 enum SolenoidPort {
-	kSolenoidForward1 = 1,
-	kSolenoidReverse1 = 1,
-	kSolenoidForward2 = 2,
-	kSolenoidReverse2 = 2,
-	kSolenoidForward3 = 3,
-	kSolenoidReverse3 = 3,
-	kSolenoidForward4 = 4,
-	kSolenoidReverse4 = 4,
+	kSolenoidPort1 = 1,
+	kSolenoidPort2 = 2,
+	kSolenoidPort3 = 3,
+	kSolenoidPort4 = 4,
+	kSolenoidPort5 = 5,
+	kSolenoidPort6 = 6,
 
 };
 

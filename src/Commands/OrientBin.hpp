@@ -4,33 +4,34 @@
 #include "Main.h"
 
 
-class ExpelStack: public Command
+class OrientBin: public Command
 {
 	public:
-		ExpelStack()
+		OrientBin()
 		{
-			Requires (&Main::getIntake());
-			Requires (&Main::getDrive());
+			Requires(&Main::getPneumatics());
+			Requires(&Main::getDrive());
 		}
 
 		virtual void Initialize() {}
 
 		virtual void Execute()
 		{
-			if(TimeSinceInitialized() < 3)
+			if (TimeSinceInitialized() < 2)
 			{
-				Main::getIntake().SetIntakeSpeed(.1);
+				Main::getPneumatics().SetBinOrienter();
 				Main::getDrive().DriveMecanum(0.0, -0.1, 0.0);
 			}
 		}
 
-		virtual bool IsFinished() { return false; }
+		virtual bool IsFinished() { return false;}
 
 		virtual void End()
 		{
-			Main::getIntake().SetIntakeSpeed(0);
+			Main::getPneumatics().ResetBinOrienter();
 			Main::getDrive().DriveMecanum(0.0, 0.0, 0.0);
 		}
 
 		virtual void Interrupted() {}
 };
+

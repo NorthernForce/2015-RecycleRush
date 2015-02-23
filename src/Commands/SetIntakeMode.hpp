@@ -3,11 +3,6 @@
 #include "Commands/Command.h"
 #include "Main.h"
 
-/**
- *
- *
- * @author ExampleAuthor
- */
 
 
 enum IntakeMode

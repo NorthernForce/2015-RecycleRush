@@ -5,7 +5,9 @@
 IntakeSubsystem::IntakeSubsystem() :
 
 	Subsystem("IntakeSubsystem"),
-	m_IntakeTalon(kIntakeTalon)
+	m_IntakeRight(kIntakeRight),
+	m_IntakeLeft(kIntakeLeft)
+	//m_IntakeTalon(kIntakeTalon)
 	//m_IntakeRelay(kIntakeRelay, Relay::kBothDirections)
 {
 	//m_IntakeRelay.Set(Relay::kReverse);
@@ -13,7 +15,9 @@ IntakeSubsystem::IntakeSubsystem() :
 
 void IntakeSubsystem::SetIntakeSpeed(float speed)
 {
-	m_IntakeTalon.Set(-speed);
+	m_IntakeRight.Set(speed);
+	m_IntakeLeft.Set(-speed);
+	//m_IntakeTalon.Set(-speed);
 }
 
 /*

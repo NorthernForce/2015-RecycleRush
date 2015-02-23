@@ -13,7 +13,6 @@ class IntakeSubsystem : public Subsystem
 		void IntakeInit();
 
 	private:
-		Talon m_IntakeTalon;
-		//Relay m_IntakeRelay;
-
+		Talon		m_IntakeRight;
+		Talon 		m_IntakeLeft;
 };
