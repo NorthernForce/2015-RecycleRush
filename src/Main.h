@@ -7,6 +7,7 @@
 #include "Subsystems/LimitSwitch.h"
 #include "Subsystems/LedDisplay.h"
 #include "OI.h"
+#include "Commands/Auto.h"
 
 class Main : public IterativeRobot {
 public:
