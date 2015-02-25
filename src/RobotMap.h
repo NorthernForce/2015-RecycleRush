@@ -43,18 +43,18 @@ enum XBoxJoystickButtonPort
  */
 enum Attack3JoystickPort
 {
- 	kAttackJoystickButtonTrigger = 1,
- 	kAttackJoystickButton2 = 2,
- 	kAttackJoystickButton3 = 3,
- 	kAttackJoystickButton4 = 4,
- 	kAttackJoystickButton5 = 5,
- 	kAttackJoystickButton6 = 6,
- 	kAttackJoystickButton7 = 7,
- 	kAttackJoystickButton8 = 8,
- 	kAttackJoystickButton9 = 9,
- 	kAttackJoystickButton10 = 10,
- 	kAttackJoystickButton11 = 11,
-	kAttackJoystickButton12 = 12,
+ 	kAttackJoystickButtonTrigger = 0,
+ 	kAttackJoystickButton2 = 1,
+ 	kAttackJoystickButton3 = 2,
+ 	kAttackJoystickButton4 = 3,
+ 	kAttackJoystickButton5 = 4,
+ 	kAttackJoystickButton6 = 5,
+ 	kAttackJoystickButton7 = 6,
+ 	kAttackJoystickButton8 = 7,
+ 	kAttackJoystickButton9 = 8,
+ 	kAttackJoystickButton10 = 9,
+ 	kAttackJoystickButton11 = 10,
+	kAttackJoystickButton12 = 11,
 };
 
 enum TalonCANAdress {

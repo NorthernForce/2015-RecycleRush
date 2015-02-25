@@ -28,7 +28,7 @@ void DriveWithJoystick::Execute()
 	SmartDashboard::PutNumber("Left Stick Y Value: ", y);
 	SmartDashboard::PutNumber("Right Stick X Value: ", w);
 
-
+	std::cout << "X: " << x << " Y: " << y << " W: " << w << std::endl;
 	// Send command to drive subsystem
 	Main::getDrive().DriveMecanum(x, y, w);
 }

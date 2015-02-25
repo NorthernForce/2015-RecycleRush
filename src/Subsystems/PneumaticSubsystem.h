@@ -17,6 +17,7 @@ class PneumaticSubsystem : public SubsystemWithCommand<void>
 		void SetToteLifter();
 		void ResetToteLifter();
 
+		void init();
 
 	private:
 		DoubleSolenoid 	    m_BinOrienter;

@@ -4,10 +4,10 @@
 #include "Main.h"
 
 
-class ConsumeTote: public Command
+class DropTote: public Command
 {
 	public:
-		ConsumeTote()
+		DropTote()
 		{
 			Requires(&Main::getPneumatics());
 		}
@@ -16,7 +16,7 @@ class ConsumeTote: public Command
 
 		virtual void Execute()
 		{
-			Main::getPneumatics().SetToteLifter();
+			Main::getPneumatics().ResetToteLifter();
 		}
 
 		virtual bool IsFinished(){return false;}
