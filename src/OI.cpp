@@ -3,10 +3,13 @@
 #include "Commands/SetIntakeMode.hpp"
 #include "Commands/ExpelStack.hpp"
 #include "Commands/ConsumeTote.hpp"
+#include "Commands/DropTote.hpp"
 #include "Commands/OrientBin.hpp"
 #include "Commands/HoldBin.hpp"
 
-OI::OI() : m_DriverStick(kDriverStickPort), m_ManipulatorStick(kManipulatorStickPort) {}
+OI::OI() :
+	m_DriverStick(kDriverStickPort),
+	m_ManipulatorStick(kManipulatorStickPort) {}
 
 void OI::init()
 {
@@ -22,12 +25,13 @@ void OI::init()
 
     m_ManipulatorStick.Button2.WhenPressed<ExpelStack>();
     m_ManipulatorStick.Button3.WhileHeld<ConsumeTote>();
-    m_ManipulatorStick.Button4.WhenPressed<OrientBin>();
-    m_ManipulatorStick.Button5.WhileHeld<HoldBin>();
+    m_ManipulatorStick.Button4.WhileHeld<DropTote>();
+    m_ManipulatorStick.Button5.WhenPressed<OrientBin>();
+    m_ManipulatorStick.Button6.WhileHeld<HoldBin>();
 
-    m_ManipulatorStick.Button6.WhenPressed<SetIntakeMode<REVERSE> >();
-    m_ManipulatorStick.Button7.WhenPressed<SetIntakeMode<FORWARD> >();
-    m_ManipulatorStick.Button8.WhenPressed<SetIntakeMode<STOPPED> >();
+    m_ManipulatorStick.Button7.WhenPressed<SetIntakeMode<REVERSE> >();
+    m_ManipulatorStick.Button8.WhenPressed<SetIntakeMode<FORWARD> >();
+    m_ManipulatorStick.Button9.WhenPressed<SetIntakeMode<STOPPED> >();
 }
 
 FRCXboxJoystick& OI::GetDriverStick()

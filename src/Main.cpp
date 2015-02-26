@@ -50,6 +50,8 @@ void Main::RobotInit()
 {
 	m_oi.init();
 	m_drive.init();
+	m_pneumatics.init();
+
 	lw = LiveWindow::GetInstance();
 
 	//CameraServer::GetInstance()->SetQuality(50);
@@ -70,7 +72,6 @@ void Main::AutonomousPeriodic()
 
 void Main::TeleopInit()
 {
-
 }
 
 void Main::TeleopPeriodic()

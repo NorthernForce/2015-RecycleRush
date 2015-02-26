@@ -40,4 +40,9 @@ void PneumaticSubsystem::ResetToteLifter()
 	m_ToteLifter.Set(DoubleSolenoid::kForward);
 }
 
+void PneumaticSubsystem::init()
+{
+	m_ToteLifter.Set(DoubleSolenoid::kForward);
+}
+
 
