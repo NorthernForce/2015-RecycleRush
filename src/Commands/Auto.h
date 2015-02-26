@@ -1,15 +1,17 @@
-#pragma once
 
+#pragma once
 #include "Commands/Command.h"
 
 
-class DriveWithJoystick: public Command
+class Auto: public Command
 {
 	public:
-		DriveWithJoystick();
+		Auto();
 		virtual void Initialize();
 		virtual void Execute();
 		virtual bool IsFinished();
 		virtual void End();
 		virtual void Interrupted();
 };
+
+

@@ -2,35 +2,34 @@
 #include "../Main.h"
 #include <cmath>
 
+
 DriveWithJoystick::DriveWithJoystick()
 {
-    Requires(&Main::getDrive());
+	Requires(&Main::getDrive());
 }
 
-void DriveWithJoystick::Initialize()
-{
-}
+void DriveWithJoystick::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute()
 {
-    // X velocity
-    float x = Main::getOI().GetDriverStick().GetLeftStickX();
-    //x *= fabs(x);
-    // Y velocity
-    float y = Main::getOI().GetDriverStick().GetLeftStickY();
-    //y *= fabs(y);
-    // Angular velocity
-    float w = Main::getOI().GetDriverStick().GetRightStickX();
-    //w *= fabs(w);
+	// X velocity
+	float x = Main::getOI().GetDriverStick().GetLeftStickX();
+	//x *= fabs(x);
+	// Y velocity
+	float y = Main::getOI().GetDriverStick().GetLeftStickY();
+	//y *= fabs(y);
+	// Angular velocity
+	float w = Main::getOI().GetDriverStick().GetRightStickX();
+	//w *= fabs(w);
 
-    //Send joystick values to SmartDashboard
-    SmartDashboard::PutNumber("Left Stick X Value: ", x);
-    SmartDashboard::PutNumber("Left Stick Y Value: ", y);
-    SmartDashboard::PutNumber("Right Stick X Value: ", w);
+	//Send joystick values to SmartDashboard
+	SmartDashboard::PutNumber("Left Stick X Value: ", x);
+	SmartDashboard::PutNumber("Left Stick Y Value: ", y);
+	SmartDashboard::PutNumber("Right Stick X Value: ", w);
 
 
-    // Send command to drive subsystem
+	// Send command to drive subsystem
 	Main::getDrive().DriveMecanum(x, y, w);
 }
 
@@ -42,10 +41,11 @@ bool DriveWithJoystick::IsFinished()
 
 void DriveWithJoystick::End()
 {
-    printf("DriveWithJoystick Ended");
+	printf("DriveWithJoystick Ended");
 }
 
 void DriveWithJoystick::Interrupted()
 {
-    printf("DriveWithJoystick Interrupted");
+	printf("DriveWithJoystick Interrupted");
 }
+

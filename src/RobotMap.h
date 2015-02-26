@@ -57,12 +57,15 @@ enum Attack3JoystickPort
 	kAttackJoystickButton12 = 12,
 };
 
-enum JagCANAdress {
+enum TalonCANAdress {
 
-	kFrontLeftTalon = 0, //4
-	kFrontRightTalon = 1, //5,
-	kBackLeftTalon = 2, //6,
-	kBackRightTalon = 3, //3,
+	kFrontLeftTalon = 2, //1, //0, //4
+	kFrontRightTalon = 1, //3, //1, //5,
+	kBackLeftTalon = 4, //2, //2, //6,
+	kBackRightTalon = 3, //4, //3, //3,
+
+	kIntakeRight = 8,
+	kIntakeLeft = 7,
 
 	//kFrontLeftMotor = 0,
 	//kFrontRightMotor = 1,
@@ -81,6 +84,7 @@ enum JagCANAdress {
 //	kFrontLeftTalon = 5,
 };
 
+
 enum JoystickPort {
     kDriverStickPort = 0,
     kManipulatorStickPort = 1,
@@ -89,10 +93,8 @@ enum JoystickPort {
 enum RelayPort {
 	kCompressorModule = 1,
 	kCompressorRelay = 1,
-	kShooterModule = 1,
-	kShooterRelay = 3,
-	kPickupModule = 1,
-	kPickupRelay = 2,
+	kIntakeModule = 1,
+	kIntakeRelay = 2,
 };
 
 enum DigitalIOPort {
@@ -110,7 +112,13 @@ enum AnalogIOPort
 };
 
 enum SolenoidPort {
-	kPickupSolenoid = 1,
+	kSolenoidPort1 = 1,
+	kSolenoidPort2 = 2,
+	kSolenoidPort3 = 3,
+	kSolenoidPort4 = 4,
+	kSolenoidPort5 = 5,
+	kSolenoidPort6 = 6,
+
 };
 
 static const float kDeadbandLimit = 0.01;

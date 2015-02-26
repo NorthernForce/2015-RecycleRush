@@ -1,47 +1,85 @@
 #include "Main.h"
 
-Main::Main() : lw(0) {}
+Main::Main() : lw(0)
+{
 
-Main::~Main(){}
+}
 
-Main& Main::getRobot() {
+Main::~Main()
+{
+
+}
+
+Main& Main::getRobot()
+{
 	return static_cast<Main&>(RobotBase::getInstance());
 }
 
 
-MecanumDrive& Main::getDrive() {
-	return getRobot().s_drive;
+MecanumDrive& Main::getDrive()
+{
+	return getRobot().m_drive;
 }
 
-
-OI& Main::getOI() {
-	return getRobot().oi;
+PneumaticSubsystem& Main::getPneumatics()
+{
+	return getRobot().m_pneumatics;
 }
 
-void Main::RobotInit() {
-	oi.init();
-	s_drive.init();
+IntakeSubsystem& Main::getIntake()
+{
+	return getRobot().m_intake;
+}
+
+LimitSwitch& Main::getLimit()
+{
+	return getRobot().m_limit;
+}
+
+LedDisplay& Main::getLed()
+{
+	return getRobot().m_led;
+}
+
+OI& Main::getOI()
+{
+	return getRobot().m_oi;
+}
+
+void Main::RobotInit()
+{
+	m_oi.init();
+	m_drive.init();
 	lw = LiveWindow::GetInstance();
+
+	//CameraServer::GetInstance()->SetQuality(50);
+	//the camera name (ex "cam0") can be found through the roborio web interface
+	//CameraServer::GetInstance()->StartAutomaticCapture("Cam2"); //need to find name
+
 }
 
-void Main::AutonomousInit() {
+void Main::AutonomousInit()
+{
+
 }
 
-void Main::AutonomousPeriodic() {
+void Main::AutonomousPeriodic()
+{
 	Scheduler::GetInstance()->Run();
 }
 
-void Main::TeleopInit() {
-	//s_drive.SetAxes(0.5, 0.5);
+void Main::TeleopInit()
+{
+
 }
 
-void Main::TeleopPeriodic() {
+void Main::TeleopPeriodic()
+{
 	Scheduler::GetInstance()->Run();
-
-
 }
 
-void Main::TestPeriodic() {
+void Main::TestPeriodic()
+{
 	lw->Run();
 }
 
