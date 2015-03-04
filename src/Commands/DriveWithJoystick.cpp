@@ -31,17 +31,17 @@ void DriveWithJoystick::Execute()
 	if (x > 0.5)
 		x = log(x);
 	else if (x < -0.5)
-		x = -log(x);
+		x = -log(-x);
 
 	if (y > 0.5)
 		y = log(y);
 	else if (y < -0.5)
-		y = -log(y);
+		y = -log(-y);
 
 	if (w > 0.5)
 		w = log(w);
 	else if (w < -0.5)
-		w = -log(w);
+		w = -log(-w);
 
 
 	// Sends command to drive subsystem

@@ -31,10 +31,10 @@ void OI::init()
     m_ManipulatorStick.Button2.ToggleWhenPressed<OrientBin>(); 					// actually 1
     m_ManipulatorStick.Button2.ToggleWhenPressed<ReOrientBin>();				// actually 1
 
-    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<REVERSE> >(); 	// actually 4
-    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 4
-    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<FORWARD> >(); 	// actually 5
-    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 5
+    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<REVERSE> >(); 	// actually 5
+    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 5
+    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<FORWARD> >(); 	// actually 4
+    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 4
 
     m_ManipulatorStick.Button3.ToggleWhenPressed<HoldBin>(); 					// actually 2
     m_ManipulatorStick.Button3.ToggleWhenPressed<ReleaseBin>();					// actually 2
