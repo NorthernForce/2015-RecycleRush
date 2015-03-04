@@ -4,10 +4,10 @@
 #include "Main.h"
 
 
-class OrientBin: public Command
+class ReOrientBin: public Command
 {
 	public:
-		OrientBin()
+		ReOrientBin()
 		{
 			Requires(&Main::getPneumatics());
 			//Requires(&Main::getDrive());
@@ -19,7 +19,7 @@ class OrientBin: public Command
 		{
 			//if (TimeSinceInitialized() < 2)
 			//{
-				Main::getPneumatics().SetBinOrienter();
+				Main::getPneumatics().ResetBinOrienter();
 				//Main::getDrive().DriveMecanum(0.0, -0.1, 0.0);
 			//}
 		}

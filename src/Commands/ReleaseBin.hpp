@@ -4,19 +4,19 @@
 #include "Main.h"
 
 
-class HoldBin: public Command
+class ReleaseBin: public Command
 {
 	public:
-		HoldBin()
+		ReleaseBin()
 		{
-			Requires(&Main::getPneumatics());
+			Requires (&Main::getPneumatics());
 		}
 
 		virtual void Initialize() {}
 
 		virtual void Execute()
 		{
-			Main::getPneumatics().SetBinHolder();
+			Main::getPneumatics().ResetBinHolder();
 		}
 
 		virtual bool IsFinished() { return false; }

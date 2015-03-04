@@ -52,11 +52,12 @@ void Auto::Execute()
 
 bool Auto::IsFinished()
 {
-	return TimeSinceInitialized() < 10;
+	return TimeSinceInitialized() > 10;
 }
 
 void Auto::End()
 {
+	Main::getIntake().SetIntakeSpeed(0.0);
 	Main::getPneumatics().ResetToteLifter();
 	Main::getDrive().DriveMecanum(0.0, 0.0, 0.0);
 }

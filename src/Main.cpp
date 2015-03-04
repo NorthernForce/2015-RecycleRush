@@ -1,14 +1,10 @@
 #include "Main.h"
 
 Main::Main() : lw(0)
-{
-
-}
+{}
 
 Main::~Main()
-{
-
-}
+{}
 
 Main& Main::getRobot()
 {
@@ -51,19 +47,13 @@ void Main::RobotInit()
 	m_oi.init();
 	m_drive.init();
 	m_pneumatics.init();
+	m_intake.init();
 
 	lw = LiveWindow::GetInstance();
-
-	//CameraServer::GetInstance()->SetQuality(50);
-	//the camera name (ex "cam0") can be found through the roborio web interface
-	//CameraServer::GetInstance()->StartAutomaticCapture("Cam2"); //need to find name
-
 }
 
 void Main::AutonomousInit()
-{
-
-}
+{}
 
 void Main::AutonomousPeriodic()
 {
@@ -71,8 +61,7 @@ void Main::AutonomousPeriodic()
 }
 
 void Main::TeleopInit()
-{
-}
+{}
 
 void Main::TeleopPeriodic()
 {

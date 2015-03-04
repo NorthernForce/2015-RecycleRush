@@ -9,36 +9,35 @@
 #include "OI.h"
 #include "Commands/Auto.h"
 
-class Main : public IterativeRobot {
-public:
-	Main();
-	virtual ~Main();
+class Main : public IterativeRobot
+{
+	public:
+		Main();
+		virtual ~Main();
 
-	static Main& 				getRobot();
-	static MecanumDrive& 		getDrive();
-	static PneumaticSubsystem&  getPneumatics();
-	static IntakeSubsystem&     getIntake();
-	static LimitSwitch&			getLimit();
-	static LedDisplay&			getLed();
-	static OI& 					getOI();
-
-	//static BallCmdServer& getBall();
-
-private:
-	LiveWindow 		   *lw;
-	MecanumDrive  	   m_drive;
-	PneumaticSubsystem m_pneumatics;
-	IntakeSubsystem    m_intake;
-	LimitSwitch		   m_limit;
-	LedDisplay		   m_led;
-	OI				   m_oi;
+		static Main& 				getRobot();
+		static MecanumDrive& 		getDrive();
+		static PneumaticSubsystem&  getPneumatics();
+		static IntakeSubsystem&     getIntake();
+		static LimitSwitch&			getLimit();
+		static LedDisplay&			getLed();
+		static OI& 					getOI();
 
 
-	virtual void RobotInit();
-	virtual void AutonomousInit();
-	virtual void AutonomousPeriodic();
-	virtual void TeleopInit();
-	virtual void TeleopPeriodic();
-	virtual void TestPeriodic();
+	private:
+		LiveWindow 		   *lw;
+		MecanumDrive  	   m_drive;
+		PneumaticSubsystem m_pneumatics;
+		IntakeSubsystem    m_intake;
+		LimitSwitch		   m_limit;
+		LedDisplay		   m_led;
+		OI				   m_oi;
+
+		virtual void RobotInit();
+		virtual void AutonomousInit();
+		virtual void AutonomousPeriodic();
+		virtual void TeleopInit();
+		virtual void TeleopPeriodic();
+		virtual void TestPeriodic();
 };
 
