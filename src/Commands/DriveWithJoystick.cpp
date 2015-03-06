@@ -15,21 +15,37 @@ void DriveWithJoystick::Execute()
 {
 	// X velocity
 	float x = Main::getOI().GetDriverStick().GetLeftStickX();
-	//x *= fabs(x);
 	// Y velocity
 	float y = Main::getOI().GetDriverStick().GetLeftStickY();
-	//y *= fabs(y);
 	// Angular velocity
 	float w = Main::getOI().GetDriverStick().GetRightStickX();
-	//w *= fabs(w);
 
 	//Send joystick values to SmartDashboard
 	SmartDashboard::PutNumber("Left Stick X Value: ", x);
 	SmartDashboard::PutNumber("Left Stick Y Value: ", y);
 	SmartDashboard::PutNumber("Right Stick X Value: ", w);
 
-	std::cout << "X: " << x << " Y: " << y << " W: " << w << std::endl;
-	// Send command to drive subsystem
+
+	//Adjusts the joystick values according to a log scale
+
+	if (x > 0.4)
+		x = log(x + 0.5) + 0.74;
+	else if (x < -0.4)
+		x = -log(-x + 0.5) - 0.74;
+
+	if (y > 0.4)
+		y = log(y + 0.5) + 0.74;
+	else if (y < -0.4)
+		y = -log(-y + 0.5) - 0.74;
+
+	if (w > 0.4)
+		w = log(w + 0.5) + 0.74;
+	else if (w < -0.4)
+		w = -log(-w + 0.5) - 0.74;
+
+
+	// Sends command to drive subsystem
+
 	Main::getDrive().DriveMecanum(x, y, w);
 }
 

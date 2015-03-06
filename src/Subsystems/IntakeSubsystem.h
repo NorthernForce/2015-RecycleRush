@@ -9,10 +9,10 @@ class IntakeSubsystem : public Subsystem
 		IntakeSubsystem();
 
 		void SetIntakeSpeed(float speed);
-		//void IntakeSetPosition(IntakeMode m_mode);
-		void IntakeInit();
+		void GetIntakeSpeed();
+		void init();
 
 	private:
 		Talon		m_IntakeRight;
-		Talon 		m_IntakeLeft;
+		Talon    	m_IntakeLeft;
 };

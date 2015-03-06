@@ -20,9 +20,7 @@
 */
 
 class Attack3Joystick: public Joystick
-	{
-	private:
-		float Deadband(float input);
+{
 	public:
 		Attack3Joystick(int port);
 		float GetStickX();
@@ -52,6 +50,9 @@ class Attack3Joystick: public Joystick
 		SafeButton Button10;
 		SafeButton Button11;
 		SafeButton Button12;
+
+	private:
+		float Deadband(float input);
 };
 
 
