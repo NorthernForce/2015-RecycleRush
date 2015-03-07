@@ -33,26 +33,38 @@ void Auto::Execute()
 
 	else if(t < 6)
 	{
-		Main::getDrive().DriveMecanum(0.5, 0.0, 0.0);
+		Main::getDrive().DriveMecanum(-0.5, 0.0, 0.0);
 	}
 
 	else if(t < 7)
 	{
-		Main::getIntake().SetIntakeSpeed(1.0);
-		Main::getDrive().DriveMecanum(0.0, 0.0, 0.0);
+		Main::getIntake().SetIntakeSpeed(0.5);
+		Main::getDrive().DriveMecanum(0.0, 0.1, 0.0);
 	}
 
 	else if(t < 8)
 	{
 		Main::getIntake().SetIntakeSpeed(0.0);
-		Main::getDrive().DriveMecanum(0.0, 1.0, 0.0);
+		Main::getDrive().DriveMecanum(0.0, 0.0, 0.0);
+		Main::getPneumatics().ResetToteLifter();
 	}
+
+	else if (t < 9)
+	{
+		Main::getPneumatics().SetToteLifter();
+	}
+
+	else if (t < 10)
+	{
+		Main::getDrive().DriveMecanum(0.0, -1.0, 0.0);
+	}
+
 
 }
 
 bool Auto::IsFinished()
 {
-	return TimeSinceInitialized() > 10;
+	return TimeSinceInitialized() > 11;
 }
 
 void Auto::End()

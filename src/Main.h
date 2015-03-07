@@ -26,6 +26,7 @@ class Main : public IterativeRobot
 
 	private:
 		LiveWindow 		   *lw;
+		Command*           autocmd;
 		MecanumDrive  	   m_drive;
 		PneumaticSubsystem m_pneumatics;
 		IntakeSubsystem    m_intake;
