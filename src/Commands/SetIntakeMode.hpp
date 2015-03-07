@@ -10,6 +10,8 @@ enum IntakeMode
 	STOPPED = 1,
 	FORWARD = 2,
 	REVERSE = 3,
+	OPPOSITE1 = 4,
+	OPPOSITE2 = 5,
 };
 
 
@@ -31,6 +33,12 @@ class SetIntakeMode: public Command
 				break;
 				case REVERSE:
 				Main::getIntake().SetIntakeSpeed(-0.5);
+				break;
+				case OPPOSITE1:
+				Main::getIntake().SetReverseIntakeSpeed(0.5);
+				break;
+				case OPPOSITE2:
+				Main::getIntake().SetReverseIntakeSpeed(-0.5);
 				break;
 				default:
 				break;

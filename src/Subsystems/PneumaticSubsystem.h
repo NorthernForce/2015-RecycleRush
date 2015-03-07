@@ -17,11 +17,15 @@ class PneumaticSubsystem : public SubsystemWithCommand<void>
 		void SetToteLifter();
 		void ResetToteLifter();
 
+		void SetWheelActuator();
+		void ResetWheelActuator();
+
 		void init();
 
 	private:
 		DoubleSolenoid 	    m_BinOrienter;
 		DoubleSolenoid		m_BinHolder;
 		DoubleSolenoid		m_ToteLifter;
+		DoubleSolenoid 	    m_WheelActuator;
 };
 

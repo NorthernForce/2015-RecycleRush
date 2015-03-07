@@ -96,6 +96,8 @@ enum SolenoidPort
 	kSolenoidPort4 = 4,
 	kSolenoidPort5 = 5,
 	kSolenoidPort6 = 6,
+	kSolenoidPort7 = 7,
+	kSolenoidPort0 = 0,
 
 };
 

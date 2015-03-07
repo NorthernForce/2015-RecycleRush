@@ -4,9 +4,10 @@
 
 PneumaticSubsystem::PneumaticSubsystem():
 		SubsystemWithCommand<void>("PneumaticSubsystem"),
-		m_BinOrienter(kSolenoidPort3, kSolenoidPort4),
-		m_BinHolder(kSolenoidPort1, kSolenoidPort2),
-		m_ToteLifter(kSolenoidPort6, kSolenoidPort5)
+		m_BinOrienter(kSolenoidPort1, kSolenoidPort2),
+		m_BinHolder(kSolenoidPort7, kSolenoidPort0),
+		m_ToteLifter(kSolenoidPort6, kSolenoidPort5),
+		m_WheelActuator(kSolenoidPort3, kSolenoidPort4)
 		{}
 
 
@@ -40,10 +41,22 @@ void PneumaticSubsystem::ResetToteLifter()
 	m_ToteLifter.Set(DoubleSolenoid::kForward);
 }
 
+void PneumaticSubsystem::SetWheelActuator()
+{
+	m_WheelActuator.Set(DoubleSolenoid::kForward);
+}
+
+void PneumaticSubsystem::ResetWheelActuator()
+{
+	m_WheelActuator.Set(DoubleSolenoid::kReverse);
+}
+
 void PneumaticSubsystem::init()
 {
 	m_ToteLifter.Set(DoubleSolenoid::kForward);
 	m_BinOrienter.Set(DoubleSolenoid::kReverse);
+	m_BinHolder.Set(DoubleSolenoid::kOff);
+	m_WheelActuator.Set(DoubleSolenoid::kReverse);
 }
 
 

@@ -1,10 +1,12 @@
 #include "Main.h"
 
-Main::Main() : lw(0)
+Main::Main() : lw(0), autocmd()
 {}
 
 Main::~Main()
-{}
+{
+	delete autocmd;
+}
 
 Main& Main::getRobot()
 {
@@ -49,11 +51,18 @@ void Main::RobotInit()
 	m_pneumatics.init();
 	m_intake.init();
 
+	autocmd = new Auto();
 	lw = LiveWindow::GetInstance();
+
+	//std::shared_ptr<USBCamera> camera(new USBCamera("cam1", true));
+	//CameraServer::GetInstance()->SetQuality(50);
+	//CameraServer::GetInstance()->StartAutomaticCapture(camera);
 }
 
 void Main::AutonomousInit()
-{}
+{
+	autocmd->Start();
+}
 
 void Main::AutonomousPeriodic()
 {
