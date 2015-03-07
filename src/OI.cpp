@@ -8,6 +8,8 @@
 #include "Commands/HoldBin.hpp"
 #include "Commands/ReleaseBin.hpp"
 #include "Commands/ReOrientBin.hpp"
+#include "Commands/ActuateWheels.hpp"
+#include "Commands/RightBin.hpp"
 
 OI::OI() :
 	m_DriverStick(kDriverStickPort),
@@ -28,18 +30,27 @@ void OI::init()
 
     m_ManipulatorStick.Button4.ToggleWhenPressed<ConsumeTote>(); 				// actually 3
     m_ManipulatorStick.Button4.ToggleWhenPressed<DropTote>(); 				    // actually 3
-    m_ManipulatorStick.Button2.ToggleWhenPressed<OrientBin>(); 					// actually 1
-    m_ManipulatorStick.Button2.ToggleWhenPressed<ReOrientBin>();				// actually 1
+    m_ManipulatorStick.Button3.ToggleWhenPressed<OrientBin>(); 					// actually 2
+    m_ManipulatorStick.Button3.ToggleWhenPressed<ReOrientBin>();				// actually 2
 
-    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<REVERSE> >(); 	// actually 5
-    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 5
-    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<FORWARD> >(); 	// actually 4
-    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<STOPPED> >(); 	// actually 4
 
-    m_ManipulatorStick.Button3.ToggleWhenPressed<HoldBin>(); 					// actually 2
-    m_ManipulatorStick.Button3.ToggleWhenPressed<ReleaseBin>();					// actually 2
+    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<FORWARD>   >(); 	// actually 4
+    m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 4
+    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<REVERSE>   >(); 	// actually 5
+    m_ManipulatorStick.Button6.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 5
+    m_ManipulatorStick.Button7.ToggleWhenPressed<SetIntakeMode<OPPOSITE1> >();  // actually 6
+    m_ManipulatorStick.Button7.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 6
+    m_ManipulatorStick.Button8.ToggleWhenPressed<SetIntakeMode<OPPOSITE2> >();  // actually 7
+    m_ManipulatorStick.Button8.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 7
 
-    m_ManipulatorStick.Button10.WhenPressed<ExpelStack>();						// actually 9
+
+    m_ManipulatorStick.Button2.ToggleWhenPressed<ActuateWheels<IN>  >(); 		// actually 1
+    m_ManipulatorStick.Button2.ToggleWhenPressed<ActuateWheels<OUT> >();		// actually 1
+
+    m_ManipulatorStick.Button9.ToggleWhenPressed<HoldBin>();					// actually 8
+    m_ManipulatorStick.Button9.ToggleWhenPressed<ReleaseBin>();					// actually 8
+    m_ManipulatorStick.Button10.WhenPressed<RightBin>();						// actually 9
+    m_ManipulatorStick.Button11.WhenPressed<ExpelStack>();						// actually 10
 
 
 }

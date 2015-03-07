@@ -9,6 +9,7 @@ class IntakeSubsystem : public Subsystem
 		IntakeSubsystem();
 
 		void SetIntakeSpeed(float speed);
+		void SetReverseIntakeSpeed(float speed);
 		void GetIntakeSpeed();
 		void init();
 

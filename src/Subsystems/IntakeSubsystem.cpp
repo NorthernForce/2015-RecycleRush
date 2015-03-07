@@ -18,6 +18,11 @@ void IntakeSubsystem::SetIntakeSpeed(float speed)
 	m_IntakeLeft.SetSpeed(-speed);
 }
 
+void IntakeSubsystem::SetReverseIntakeSpeed(float speed)
+{
+	m_IntakeRight.SetSpeed(speed);
+	m_IntakeLeft.SetSpeed(speed);
+}
 
 void IntakeSubsystem::GetIntakeSpeed()
 {
