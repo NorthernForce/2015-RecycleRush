@@ -53,6 +53,10 @@ void Main::RobotInit()
 
 	autocmd = new Auto();
 	lw = LiveWindow::GetInstance();
+
+	//std::shared_ptr<USBCamera> camera(new USBCamera("cam1", true));
+	//CameraServer::GetInstance()->SetQuality(50);
+	//CameraServer::GetInstance()->StartAutomaticCapture(camera);
 }
 
 void Main::AutonomousInit()
