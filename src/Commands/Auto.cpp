@@ -15,7 +15,7 @@ void Auto::Execute()
 {
 	double t = TimeSinceInitialized();
 
-	double mode = 0.0;
+	double mode = 1.0;
 
 	SmartDashboard::GetNumber("Autonomous Mode", mode);
 
@@ -30,7 +30,7 @@ if(mode == 1.0)
 
 	else if(t > 5 && t < 6)
 	{
-		Main::getDrive().DriveMecanum(0.0, 0.0, 0.5);
+		Main::getDrive().DriveMecanum(0.0, 0.0, 0.58);
 		Main::getIntake().SetIntakeSpeed(0.0);
 	}
 
