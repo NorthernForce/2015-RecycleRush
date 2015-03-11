@@ -20,7 +20,7 @@ class ExpelStack: public Command
 			if(TimeSinceInitialized() < 3)
 			{
 				Main::getIntake().SetIntakeSpeed(.1);
-				Main::getDrive().DriveMecanum(0.0, -0.1, 0.0);
+				Main::getDrive().DriveMecanum(0.0, -0.3, 0.0);
 			}
 		}
 
