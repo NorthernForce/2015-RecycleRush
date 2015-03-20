@@ -67,7 +67,9 @@ void Main::AutonomousPeriodic()
 }
 
 void Main::TeleopInit()
-{}
+{
+	//Main::getPneumatics().SetToteLifter();
+}
 
 void Main::TeleopPeriodic()
 {

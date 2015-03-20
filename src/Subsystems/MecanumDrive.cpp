@@ -31,10 +31,15 @@ void MecanumDrive::init()
 {
 	m_drive.SetSafetyEnabled(false);
 	// Invert the left motors.
-	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
-	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
+	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, false);  //PRACTICE ROBOT
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  false);
 	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  true);
+
+	/*m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);  //COMPETITION ROBOT: Wired 180 degrees different, FL = RR, etc.
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
+	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  true);
+	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  false);*/
 
 	// Make sure the timeout is reasonable
 	m_drive.SetExpiration(0.2);

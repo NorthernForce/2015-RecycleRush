@@ -4,11 +4,14 @@
 
 PneumaticSubsystem::PneumaticSubsystem():
 		SubsystemWithCommand<void>("PneumaticSubsystem"),
-		m_BinOrienter(kSolenoidPort1, kSolenoidPort2),
+		m_BinOrienter(kSolenoidPort3, kSolenoidPort4),
 		m_BinHolder(kSolenoidPort7, kSolenoidPort0),
 		m_ToteLifter(kSolenoidPort6, kSolenoidPort5),
-		m_WheelActuator(kSolenoidPort3, kSolenoidPort4)
-		{}
+		m_WheelActuator(kSolenoidPort1, kSolenoidPort2),
+		m_compressor(kCompressorModule)
+		{
+			m_compressor.Start();
+		}
 
 
 void PneumaticSubsystem::SetBinOrienter()
@@ -53,7 +56,8 @@ void PneumaticSubsystem::ResetWheelActuator()
 
 void PneumaticSubsystem::init()
 {
-	m_ToteLifter.Set(DoubleSolenoid::kForward);
+
+	m_ToteLifter.Set(DoubleSolenoid::kReverse); //Added to set default state as down
 	m_BinOrienter.Set(DoubleSolenoid::kReverse);
 	m_BinHolder.Set(DoubleSolenoid::kOff);
 	m_WheelActuator.Set(DoubleSolenoid::kReverse);

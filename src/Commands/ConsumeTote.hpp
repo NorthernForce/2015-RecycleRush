@@ -17,6 +17,7 @@ class ConsumeTote: public Command
 		virtual void Execute()
 		{
 			Main::getPneumatics().SetToteLifter();
+			Main::getPneumatics().SetBinHolder(); //Added to retract top pistons when the pauls (lifters) are up
 		}
 
 		virtual bool IsFinished(){return false;}
