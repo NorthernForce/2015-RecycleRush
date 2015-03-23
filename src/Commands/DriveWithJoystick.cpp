@@ -14,7 +14,8 @@ void DriveWithJoystick::Initialize() {}
 void DriveWithJoystick::Execute()
 {
 	// X velocity
-	float x = Main::getOI().GetDriverStick().GetLeftStickX();
+	float x = -Main::getOI().GetDriverStick().GetLeftStickX(); //COMPETITION ROBOT: had to negate X to fix reverse strafing
+	//float x = Main::getOI().GetDriverStick().GetLeftStickX(); //PRACTICE ROBOT: normal X value
 	// Y velocity
 	float y = Main::getOI().GetDriverStick().GetLeftStickY();
 	// Angular velocity
@@ -27,7 +28,7 @@ void DriveWithJoystick::Execute()
 
 
 	//Adjusts the joystick values according to a log scale
-
+/*
 	if (x > 0.4)
 		x = log(x + 0.5) + 0.74;
 	else if (x < -0.4)
@@ -43,7 +44,7 @@ void DriveWithJoystick::Execute()
 	else if (w < -0.4)
 		w = -log(-w + 0.5) - 0.74;
 
-
+*/
 	// Sends command to drive subsystem
 
 	Main::getDrive().DriveMecanum(x, y, w);

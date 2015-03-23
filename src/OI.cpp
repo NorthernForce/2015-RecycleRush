@@ -12,8 +12,11 @@
 #include "Commands/RightBin.hpp"
 
 OI::OI() :
-	m_DriverStick(kDriverStickPort),
-	m_ManipulatorStick(kManipulatorStickPort) {}
+    m_DriverStick(kDriverStickPort),
+    m_ManipulatorStick(kManipulatorStickPort)
+	//m_XBoxManipulatorStick(kXBoxManipulatorPort)
+	{}
+
 
 void OI::init()
 {
@@ -50,7 +53,19 @@ void OI::init()
     m_ManipulatorStick.Button9.ToggleWhenPressed<HoldBin>();					// actually 8
     m_ManipulatorStick.Button9.ToggleWhenPressed<ReleaseBin>();					// actually 8
     m_ManipulatorStick.Button10.WhenPressed<RightBin>();						// actually 9
-    m_ManipulatorStick.Button11.WhenPressed<ExpelStack>();						// actually 10
+    m_ManipulatorStick.Button11.WhenPressed<HoldBin>();							// actually 10
+
+    /*m_XBoxManipulatorStick.A.ToggleWhenPressed<ConsumeTote>();
+    m_XBoxManipulatorStick.A.ToggleWhenPressed<DropTote>();
+    m_XBoxManipulatorStick.B.WhenPressed<ActuateWheels<IN> >();
+    m_XBoxManipulatorStick.X.WhenPressed<ActuateWheels<OUT> >();
+    m_XBoxManipulatorStick.Y.ToggleWhenPressed<HoldBin>();
+    m_XBoxManipulatorStick.Y.ToggleWhenPressed<ReleaseBin>();
+    m_XBoxManipulatorStick.RightBumper.WhenPressed<SetIntakeMode<OPPOSITE1> >();
+    m_XBoxManipulatorStick.LeftBumper.WhenPressed<SetIntakeMode<OPPOSITE2> >();*/
+
+
+
 
 
 }
@@ -60,7 +75,14 @@ FRCXboxJoystick& OI::GetDriverStick()
     return m_DriverStick;
 }
 
+
 Attack3Joystick& OI::GetManipulatorStick()
 {
 	return m_ManipulatorStick;
 }
+
+
+/*FRCXboxJoystick& OI::GetXBoxManipulatorStick()
+{
+	return m_XBoxManipulatorStick;
+}*/

@@ -27,5 +27,6 @@ class PneumaticSubsystem : public SubsystemWithCommand<void>
 		DoubleSolenoid		m_BinHolder;
 		DoubleSolenoid		m_ToteLifter;
 		DoubleSolenoid 	    m_WheelActuator;
+		Compressor			m_compressor;
 };
 

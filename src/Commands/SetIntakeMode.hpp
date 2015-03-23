@@ -27,18 +27,30 @@ class SetIntakeMode: public Command
 			{
 				case STOPPED:
 				Main::getIntake().SetIntakeSpeed(0.0);
+				SmartDashboard::PutBoolean(" Stopped ", true);  //Added for driver, boolean box in the (old) Smart Dashboard
+																//in the (old) Smart Dashboard
+				SmartDashboard::PutBoolean(" Intake Wheels ", false);   //Added for driver, boolean box in the (old) Smart Dashboard
+																		//in the (old) Smart Dashboard
 				break;
 				case FORWARD:
 				Main::getIntake().SetIntakeSpeed(0.5);
+				SmartDashboard::PutBoolean(" Intake Wheels ", true); //See Above
+				SmartDashboard::PutBoolean(" Stopped ", false);  //See Above
 				break;
 				case REVERSE:
 				Main::getIntake().SetIntakeSpeed(-0.5);
+				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
+				SmartDashboard::PutBoolean(" Stopped ", false);  //See Above
 				break;
 				case OPPOSITE1:
 				Main::getIntake().SetReverseIntakeSpeed(0.5);
+				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
+				SmartDashboard::PutBoolean(" Stopped ", false); //See Above
 				break;
 				case OPPOSITE2:
 				Main::getIntake().SetReverseIntakeSpeed(-0.5);
+				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
+				SmartDashboard::PutBoolean(" Stopped ", false); //See Above
 				break;
 				default:
 				break;

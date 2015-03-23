@@ -17,6 +17,7 @@ class DropTote: public Command
 		virtual void Execute()
 		{
 			Main::getPneumatics().ResetToteLifter();
+			Main::getPneumatics().SetBinHolder();   //Added to retract top pistons when the pauls (lifters) are down
 		}
 
 		virtual bool IsFinished(){return false;}

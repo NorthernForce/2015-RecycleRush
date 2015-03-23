@@ -11,9 +11,11 @@ class OI
 		void init();
 		FRCXboxJoystick& GetDriverStick();
 		Attack3Joystick& GetManipulatorStick();
+		//FRCXboxJoystick& GetXBoxManipulatorStick();
 
 	private:
 		FRCXboxJoystick m_DriverStick;
 		Attack3Joystick m_ManipulatorStick;
+		//FRCXboxJoystick m_XBoxManipulatorStick;
 
 };

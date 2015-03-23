@@ -24,16 +24,18 @@ class ActuateWheels: public Command
 			{
 				case IN:
 				Main::getPneumatics().SetWheelActuator();
-				SmartDashboard::PutBoolean("LOOK HERE!!!! Actuator: ", true);
+				SmartDashboard::PutBoolean(" Wheel Actuator: ", true);  //Added for driver, boolean box in the (old) Smart Dashboard
+																		//in the (old) Smart Dashboard
 				break;
+
 				case OUT:
 				Main::getPneumatics().ResetWheelActuator();
-				SmartDashboard::PutBoolean("LOOK HERE!!!! Actuator: ", false);
-
+				SmartDashboard::PutBoolean(" Wheel Actuator: ", false); //Added for driver, boolean box in the (old) Smart Dashboard
+																		//in the (old) Smart Dashboard
 				break;
+
 				default:
 				break;
-
 			}
 
 		}

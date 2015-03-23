@@ -31,10 +31,15 @@ void MecanumDrive::init()
 {
 	m_drive.SetSafetyEnabled(false);
 	// Invert the left motors.
-	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);
-	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
+	/*m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, false);  //PRACTICE ROBOT
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
 	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  false);
-	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  true);
+	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  true);*/
+
+	m_drive.SetInvertedMotor(RobotDrive::kFrontLeftMotor, true);  //COMPETITION ROBOT: Wired 180 degrees different, FL = RR, etc.
+	m_drive.SetInvertedMotor(RobotDrive::kFrontRightMotor, false);
+	m_drive.SetInvertedMotor(RobotDrive::kRearLeftMotor,  true);
+	m_drive.SetInvertedMotor(RobotDrive::kRearRightMotor,  false);
 
 	// Make sure the timeout is reasonable
 	m_drive.SetExpiration(0.2);
@@ -200,6 +205,8 @@ void MecanumDrive::DriveMecanum(float xVel, float yVel, float rotVel)
 		if(backLeft_alive > 0) --backLeft_alive;
 		if(backRight_alive > 0) --backRight_alive;
 
+		/*
+
 		SmartDashboard::PutNumber("M4 Command", m_frontLeft.Get());
 		SmartDashboard::PutNumber("M4 Output",  m_frontLeft.GetSpeed());
 		SmartDashboard::PutNumber("M4 Voltage", m_frontLeft.GetOutputVoltage());
@@ -223,5 +230,7 @@ void MecanumDrive::DriveMecanum(float xVel, float yVel, float rotVel)
 		SmartDashboard::PutNumber("M1 Voltage", m_backRight.GetOutputVoltage());
 		SmartDashboard::PutNumber("M1 VBus", m_backRight.GetBusVoltage());
 		SmartDashboard::PutBoolean("M1 Alive",  backRight_alive == 0);
+
+		*/
 	}
 }
