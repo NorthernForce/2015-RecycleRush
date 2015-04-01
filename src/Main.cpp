@@ -1,11 +1,12 @@
 #include "Main.h"
 
-Main::Main() : lw(0), autocmd()
+Main::Main() : lw(0), m_auto(), m_chooser()
 {}
 
 Main::~Main()
 {
-	delete autocmd;
+	delete m_auto;
+	delete m_chooser;
 }
 
 Main& Main::getRobot()
@@ -51,17 +52,18 @@ void Main::RobotInit()
 	m_pneumatics.init();
 	m_intake.init();
 
-	autocmd = new Auto();
-	lw = LiveWindow::GetInstance();
+	m_chooser = new SendableChooser();
+	m_chooser->AddDefault("Normal Auto", new NormalAuto());
+	m_chooser->AddObject("Drive Forward", new DriveForwardAuto());
+	SmartDashboard::PutData("Autonomous Modes", m_chooser);
 
-	//std::shared_ptr<USBCamera> camera(new USBCamera("cam1", true));
-	//CameraServer::GetInstance()->SetQuality(50);
-	//CameraServer::GetInstance()->StartAutomaticCapture(camera);
+	lw = LiveWindow::GetInstance();
 }
 
 void Main::AutonomousInit()
 {
-	autocmd->Start();
+	m_auto = (Command *) chooser->GetSelected();
+	m_auto->Start();
 }
 
 void Main::AutonomousPeriodic()

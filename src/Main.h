@@ -1,5 +1,5 @@
 #pragma once
-#include "WPILib.h"
+#include "../WPILib.h"
 #include "Commands/Command.h"
 #include "Subsystems/MecanumDrive.h"
 #include "Subsystems/PneumaticSubsystem.h"
@@ -7,7 +7,8 @@
 #include "Subsystems/LimitSwitch.h"
 #include "Subsystems/LedDisplay.h"
 #include "OI.h"
-#include "Commands/Auto.h"
+#include "Commands/NormalAuto.cpp"
+#include "Commands/DriveForwardAuto.cpp"
 
 class Main : public IterativeRobot
 {
@@ -26,7 +27,8 @@ class Main : public IterativeRobot
 
 	private:
 		LiveWindow 		   *lw;
-		Command*           autocmd;
+		Command            *m_auto;
+		SendableChooser    *m_chooser;
 		MecanumDrive  	   m_drive;
 		PneumaticSubsystem m_pneumatics;
 		IntakeSubsystem    m_intake;

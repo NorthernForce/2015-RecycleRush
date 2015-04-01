@@ -46,13 +46,21 @@ enum Attack3JoystickPort
 
 enum TalonCANAdress
 {
-	kFrontLeftTalon = 2,
-	kFrontRightTalon = 1,
-	kBackLeftTalon = 4,
-	kBackRightTalon = 3,
-
+	/*
+	 *	kFrontLeftTalon = 0, // PRACTICE ROBOT
+	 *	kFrontRightTalon = 1,
+	 *	kBackLeftTalon = 2,
+	 *	kBackRightTalon = 3,
+	 */
+	
+	kFrontLeftTalon = 3, // COMPETITION ROBOT: Wired 180 degrees differently, FL = BR, etc.
+	kFrontRightTalon = 2,
+	kBackLeftTalon = 1,
+	kBackRightTalon = 0,
+	
 	kIntakeRight = 8,
 	kIntakeLeft = 7,
+
 };
 
 

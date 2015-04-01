@@ -27,7 +27,8 @@ void DriveWithJoystick::Execute()
 
 
 	//Adjusts the joystick values according to a log scale
-
+	
+	/*
 	if (x > 0.4)
 		x = log(x + 0.5) + 0.74;
 	else if (x < -0.4)
@@ -42,6 +43,7 @@ void DriveWithJoystick::Execute()
 		w = log(w + 0.5) + 0.74;
 	else if (w < -0.4)
 		w = -log(-w + 0.5) - 0.74;
+	*/
 
 
 	// Sends command to drive subsystem

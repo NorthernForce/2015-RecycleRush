@@ -1,15 +1,11 @@
 #include "OI.h"
 #include "Commands/SetDriveMode.hpp"
 #include "Commands/SetIntakeMode.hpp"
-#include "Commands/ExpelStack.hpp"
-#include "Commands/ConsumeTote.hpp"
-#include "Commands/DropTote.hpp"
-#include "Commands/OrientBin.hpp"
-#include "Commands/HoldBin.hpp"
-#include "Commands/ReleaseBin.hpp"
-#include "Commands/ReOrientBin.hpp"
-#include "Commands/ActuateWheels.hpp"
-#include "Commands/RightBin.hpp"
+#include "Commands/SetLifterMode.hpp"
+#include "Commands/SetBinOrienterMode.hpp"
+#include "Commands/SeBinMode.hpp"
+#include "Commands/SetWheelMode.hpp"
+
 
 OI::OI() :
 	m_DriverStick(kDriverStickPort),
@@ -17,7 +13,6 @@ OI::OI() :
 
 void OI::init()
 {
-	// Process operator interface input here.
     m_DriverStick.RightBumper.WhenPressed<SetDriveMode<ENCODERS_ON> >();
     m_DriverStick.LeftBumper.WhenPressed<SetDriveMode<ENCODERS_OFF> >();
     m_DriverStick.X.WhenPressed<SetDriveMode<MAJOR_AXIS_ONLY> >();
@@ -27,12 +22,10 @@ void OI::init()
     m_DriverStick.B.WhenPressed<SetIntakeMode<FORWARD> >();
     m_DriverStick.Start.WhenPressed<SetIntakeMode<STOPPED> >();
 
-
-    m_ManipulatorStick.Button4.ToggleWhenPressed<ConsumeTote>(); 				// actually 3
-    m_ManipulatorStick.Button4.ToggleWhenPressed<DropTote>(); 				    // actually 3
-    m_ManipulatorStick.Button3.ToggleWhenPressed<OrientBin>(); 					// actually 2
-    m_ManipulatorStick.Button3.ToggleWhenPressed<ReOrientBin>();				// actually 2
-
+    m_ManipulatorStick.Button4.ToggleWhenPressed<SetLifterMode<UP>        >();  // actually 3
+    m_ManipulatorStick.Button4.ToggleWhenPressed<SetLifterMode<DOWN>      >(); 	// actually 3
+    m_ManipulatorStick.Button3.ToggleWhenPressed<SetBinMode<IN>           >(); 	// actually 2
+    m_ManipulatorStick.Button3.ToggleWhenPressed<SetBinMode<OUT>          >();	// actually 2
 
     m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<FORWARD>   >(); 	// actually 4
     m_ManipulatorStick.Button5.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 4
@@ -43,14 +36,11 @@ void OI::init()
     m_ManipulatorStick.Button8.ToggleWhenPressed<SetIntakeMode<OPPOSITE2> >();  // actually 7
     m_ManipulatorStick.Button8.ToggleWhenPressed<SetIntakeMode<STOPPED>   >(); 	// actually 7
 
+    m_ManipulatorStick.Button2.ToggleWhileHeld<SetWheelMode<IN>           >();  // actually 1
+    m_ManipulatorStick.Button2.ToggleWhileHeld<SetWheelMode<OUT>          >();	// actually 1
 
-    m_ManipulatorStick.Button2.ToggleWhenPressed<ActuateWheels<IN>  >(); 		// actually 1
-    m_ManipulatorStick.Button2.ToggleWhenPressed<ActuateWheels<OUT> >();		// actually 1
-
-    m_ManipulatorStick.Button9.ToggleWhenPressed<HoldBin>();					// actually 8
-    m_ManipulatorStick.Button9.ToggleWhenPressed<ReleaseBin>();					// actually 8
-    m_ManipulatorStick.Button10.WhenPressed<RightBin>();						// actually 9
-    m_ManipulatorStick.Button11.WhenPressed<ExpelStack>();						// actually 10
+    m_ManipulatorStick.Button9.ToggleWhenPressed<SetBinMode<IN>           >();	// actually 8
+    m_ManipulatorStick.Button9.ToggleWhenPressed<SetBinMode<OUT>          >();	// actually 8
 
 
 }

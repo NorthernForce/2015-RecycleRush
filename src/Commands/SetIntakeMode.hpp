@@ -29,16 +29,16 @@ class SetIntakeMode: public Command
 				Main::getIntake().SetIntakeSpeed(0.0);
 				break;
 				case FORWARD:
-				Main::getIntake().SetIntakeSpeed(0.5);
+				Main::getIntake().SetIntakeSpeed(1);
 				break;
 				case REVERSE:
-				Main::getIntake().SetIntakeSpeed(-0.5);
+				Main::getIntake().SetIntakeSpeed(-1);
 				break;
 				case OPPOSITE1:
-				Main::getIntake().SetReverseIntakeSpeed(0.5);
+				Main::getIntake().SetReverseIntakeSpeed(1);
 				break;
 				case OPPOSITE2:
-				Main::getIntake().SetReverseIntakeSpeed(-0.5);
+				Main::getIntake().SetReverseIntakeSpeed(-1);
 				break;
 				default:
 				break;

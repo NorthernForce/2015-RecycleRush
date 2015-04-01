@@ -199,7 +199,7 @@ void MecanumDrive::DriveMecanum(float xVel, float yVel, float rotVel)
 		if(frontRight_alive > 0) --frontRight_alive;
 		if(backLeft_alive > 0) --backLeft_alive;
 		if(backRight_alive > 0) --backRight_alive;
-
+/*
 		SmartDashboard::PutNumber("M4 Command", m_frontLeft.Get());
 		SmartDashboard::PutNumber("M4 Output",  m_frontLeft.GetSpeed());
 		SmartDashboard::PutNumber("M4 Voltage", m_frontLeft.GetOutputVoltage());
@@ -223,5 +223,6 @@ void MecanumDrive::DriveMecanum(float xVel, float yVel, float rotVel)
 		SmartDashboard::PutNumber("M1 Voltage", m_backRight.GetOutputVoltage());
 		SmartDashboard::PutNumber("M1 VBus", m_backRight.GetBusVoltage());
 		SmartDashboard::PutBoolean("M1 Alive",  backRight_alive == 0);
+*/
 	}
 }
