@@ -38,7 +38,7 @@ class FRCXboxJoystick: public Joystick
 		float GetLeftStickX();
 		float GetRightStickY();
 		float GetRightStickX();
-		float GetTrigger();
+		float GetXBOXTrigger();
 
 		bool GetAButton();
 		bool GetBButton();

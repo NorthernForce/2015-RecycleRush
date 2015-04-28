@@ -13,6 +13,7 @@ void DriveWithJoystick::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute()
 {
+
 	// X velocity
 	float x = -Main::getOI().GetDriverStick().GetLeftStickX(); //COMPETITION ROBOT: had to negate X to fix reverse strafing
 	//float x = Main::getOI().GetDriverStick().GetLeftStickX(); //PRACTICE ROBOT: normal X value
@@ -22,9 +23,9 @@ void DriveWithJoystick::Execute()
 	float w = Main::getOI().GetDriverStick().GetRightStickX();
 
 	//Send joystick values to SmartDashboard
-	SmartDashboard::PutNumber("Left Stick X Value: ", x);
-	SmartDashboard::PutNumber("Left Stick Y Value: ", y);
-	SmartDashboard::PutNumber("Right Stick X Value: ", w);
+	//SmartDashboard::PutNumber("Left Stick X Value: ", x);
+	//SmartDashboard::PutNumber("Left Stick Y Value: ", y);
+	//SmartDashboard::PutNumber("Right Stick X Value: ", w);
 
 
 	//Adjusts the joystick values according to a log scale
@@ -44,8 +45,8 @@ void DriveWithJoystick::Execute()
 	else if (w < -0.4)
 		w = -log(-w + 0.5) - 0.74;
 
-*/
-	// Sends command to drive subsystem
+
+	// Sends command to drive subsystem*/
 
 	Main::getDrive().DriveMecanum(x, y, w);
 }

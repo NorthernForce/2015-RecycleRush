@@ -31,7 +31,7 @@ Attack3Joystick::Attack3Joystick(int port):
 float Attack3Joystick::GetStickX()
 {
 //@TODO: Check if this is the correct axis.
-return Deadband(Joystick::GetRawAxis(1));
+return Deadband(Joystick::GetRawAxis(0));
 }
 /**
 * @brief Gets the value of the Y axis of the joystick.
@@ -40,8 +40,28 @@ return Deadband(Joystick::GetRawAxis(1));
 float Attack3Joystick::GetStickY()
 {
 //@TODO: Check if this is the correct axis.
-return Deadband(Joystick::GetRawAxis(2));
+return Deadband(Joystick::GetRawAxis(1));
 }
+
+float Attack3Joystick::GetStickZ()
+{
+	float value;
+	value = Deadband(Joystick::GetRawAxis(2));
+
+	if (value < -0.8)
+	{
+		return 0.8;
+	}
+
+	if (value > 0)
+	{
+		return 0.0;
+	}
+
+
+	return -value;
+}
+
 float Attack3Joystick::Deadband(float input)
 {
 if (input < kDeadbandLimit && input > (kDeadbandLimit*(-1)))

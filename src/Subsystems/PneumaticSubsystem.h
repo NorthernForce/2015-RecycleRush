@@ -20,13 +20,16 @@ class PneumaticSubsystem : public SubsystemWithCommand<void>
 		void SetWheelActuator();
 		void ResetWheelActuator();
 
+		void SetWedgeBar();
+		void ResetWedgeBar();
+
 		void init();
 
 	private:
-		DoubleSolenoid 	    m_BinOrienter;
 		DoubleSolenoid		m_BinHolder;
 		DoubleSolenoid		m_ToteLifter;
 		DoubleSolenoid 	    m_WheelActuator;
+		DoubleSolenoid 		m_WedgeBar;
 		Compressor			m_compressor;
 };
 

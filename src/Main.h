@@ -4,10 +4,8 @@
 #include "Subsystems/MecanumDrive.h"
 #include "Subsystems/PneumaticSubsystem.h"
 #include "Subsystems/IntakeSubsystem.h"
-#include "Subsystems/LimitSwitch.h"
-#include "Subsystems/LedDisplay.h"
 #include "OI.h"
-#include "Commands/Auto.h"
+
 
 class Main : public IterativeRobot
 {
@@ -19,19 +17,16 @@ class Main : public IterativeRobot
 		static MecanumDrive& 		getDrive();
 		static PneumaticSubsystem&  getPneumatics();
 		static IntakeSubsystem&     getIntake();
-		static LimitSwitch&			getLimit();
-		static LedDisplay&			getLed();
 		static OI& 					getOI();
 
 
 	private:
-		LiveWindow 		   *lw;
-		Command*           autocmd;
+		LiveWindow 		  *lw;
+		Command           *m_auto;
+		SendableChooser   *m_chooser;
 		MecanumDrive  	   m_drive;
 		PneumaticSubsystem m_pneumatics;
 		IntakeSubsystem    m_intake;
-		LimitSwitch		   m_limit;
-		LedDisplay		   m_led;
 		OI				   m_oi;
 
 		virtual void RobotInit();

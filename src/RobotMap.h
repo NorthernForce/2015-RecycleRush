@@ -67,7 +67,7 @@ enum JoystickPort
 {
     kDriverStickPort = 0,
     kManipulatorStickPort = 1,
-	//kXBoxManipulatorPort = 2,
+	//kXBoxManipulatorPort = 1,
 };
 
 enum RelayPort

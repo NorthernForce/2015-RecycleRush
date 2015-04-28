@@ -25,6 +25,7 @@ class Attack3Joystick: public Joystick
 		Attack3Joystick(int port);
 		float GetStickX();
 		float GetStickY();
+		float GetStickZ();
 		float GetPOT();
 		bool GetTrigger();
 		bool GetButton2();

@@ -19,10 +19,22 @@ template <int mode>
 class SetIntakeMode: public Command
 {
 	public:
-		SetIntakeMode() { Requires(&Main::getIntake()); }
+		SetIntakeMode()
+		{
+			Requires(&Main::getIntake());
+		}
 		virtual void Initialize() {}
 		virtual void Execute()
 		{
+			//float base = Main::getOI().GetManipulatorStick().GetStickZ();
+
+			//float newSpeed = pow(base, 3);
+
+			float newSpeed = Main::getOI().GetManipulatorStick().GetStickZ();
+
+			SmartDashboard::PutNumber(" Intake Wheels", newSpeed);
+
+
 			switch(mode)
 			{
 				case STOPPED:
@@ -33,22 +45,22 @@ class SetIntakeMode: public Command
 																		//in the (old) Smart Dashboard
 				break;
 				case FORWARD:
-				Main::getIntake().SetIntakeSpeed(0.5);
+				Main::getIntake().SetIntakeSpeed(newSpeed);
 				SmartDashboard::PutBoolean(" Intake Wheels ", true); //See Above
 				SmartDashboard::PutBoolean(" Stopped ", false);  //See Above
 				break;
 				case REVERSE:
-				Main::getIntake().SetIntakeSpeed(-0.5);
+				Main::getIntake().SetIntakeSpeed(-newSpeed);
 				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
 				SmartDashboard::PutBoolean(" Stopped ", false);  //See Above
 				break;
 				case OPPOSITE1:
-				Main::getIntake().SetReverseIntakeSpeed(0.5);
+				Main::getIntake().SetReverseIntakeSpeed(newSpeed);
 				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
 				SmartDashboard::PutBoolean(" Stopped ", false); //See Above
 				break;
 				case OPPOSITE2:
-				Main::getIntake().SetReverseIntakeSpeed(-0.5);
+				Main::getIntake().SetReverseIntakeSpeed(-newSpeed);
 				SmartDashboard::PutBoolean(" Intake Wheels ", false); //See Above
 				SmartDashboard::PutBoolean(" Stopped ", false); //See Above
 				break;
@@ -57,7 +69,7 @@ class SetIntakeMode: public Command
 
 			}
 
-			Main::getIntake().GetIntakeSpeed();
+			//Main::getIntake().GetIntakeSpeed();
 
 		}
 		virtual bool IsFinished() { return false; }

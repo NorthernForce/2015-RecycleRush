@@ -131,11 +131,12 @@ float FRCXboxJoystick::GetRightStickX()
  * This value is the right trigger.
  * @return The value of the trigger, not adjusted for the deadband.
  */
-float FRCXboxJoystick::GetTrigger()
+float FRCXboxJoystick::GetXBOXTrigger()
 {
 	float value = Joystick::GetRawAxis(3);
+	value = DeadbandAdjust(value);
 	SmartDashboard::PutNumber(" Trigger", value);
-	if (value > 0.5)
+	/*if (value > 0.5)
 	{
 		return value = 0.5;
 	}
@@ -143,7 +144,8 @@ float FRCXboxJoystick::GetTrigger()
 	if (value < -0.5)
 	{
 		return value = -0.5;
-	}
+	}*/
+
 	return value;
 }
 

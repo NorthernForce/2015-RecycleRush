@@ -1,11 +1,16 @@
 #include "Main.h"
+#include "Commands/Auto/NormalAuto.hpp"
+#include "Commands/Auto/DriveForwardAuto.hpp"
+#include "Commands/Auto/BinAuto.hpp"
+#include "Commands/Auto/NothingAuto.hpp"
 
-Main::Main() : lw(0), autocmd()
+Main::Main() : lw(0), m_auto(), m_chooser()
 {}
 
 Main::~Main()
 {
-	delete autocmd;
+	delete m_auto;
+	delete m_chooser;
 }
 
 Main& Main::getRobot()
@@ -29,16 +34,6 @@ IntakeSubsystem& Main::getIntake()
 	return getRobot().m_intake;
 }
 
-LimitSwitch& Main::getLimit()
-{
-	return getRobot().m_limit;
-}
-
-LedDisplay& Main::getLed()
-{
-	return getRobot().m_led;
-}
-
 OI& Main::getOI()
 {
 	return getRobot().m_oi;
@@ -51,14 +46,20 @@ void Main::RobotInit()
 	m_pneumatics.init();
 	m_intake.init();
 
+	m_chooser = new SendableChooser();
+	m_chooser->AddDefault("Normal Auto", new NormalAuto());
+	m_chooser->AddObject("Drive Forward", new DriveForwardAuto());
+	m_chooser->AddObject("Bin Auto", new BinAuto());
+	m_chooser->AddObject("Nothing", new NothingAuto());
+	SmartDashboard::PutData("Autonomous Modes", m_chooser);
 
-	autocmd = new Auto();
 	lw = LiveWindow::GetInstance();
 }
 
 void Main::AutonomousInit()
 {
-	autocmd->Start();
+	m_auto = (Command *) m_chooser->GetSelected();
+	m_auto->Start();
 }
 
 void Main::AutonomousPeriodic()
