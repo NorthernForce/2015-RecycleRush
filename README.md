@@ -1,5 +1,3 @@
 # 2015-RecycleRush
 
-This is the code for Team 172's robot to participate in the 2015 FIRST Robotics game Recycle Rush. 
-
-This is a change.
+This code is an updated version of Team 172's 2015 Recycle-Rush code, designed to run on cRIO, not roboRIO.  
