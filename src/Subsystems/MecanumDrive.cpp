@@ -87,7 +87,7 @@ void MecanumDrive::EnableEncoders(bool invertGains)
 	m_frontRight.Set(10.0);
 	m_backRight.SetControlMode(CANTalon::kSpeed);
 	m_backRight.Set(10.0);
-
+/*
 	// Fetch PID gains from the smart dashboard.
 	P = SmartDashboard::GetNumber("Drive P");
 	I = SmartDashboard::GetNumber("Drive I");
@@ -109,7 +109,7 @@ void MecanumDrive::EnableEncoders(bool invertGains)
 		m_frontRight.SetPID(P, I, D);
 		m_backRight.SetPID(P, I, D);
 	}
-
+*/
 	// We have quadrature encoders
 	m_frontLeft.SetFeedbackDevice(CANTalon::QuadEncoder);
 	m_backLeft.SetFeedbackDevice(CANTalon::QuadEncoder);

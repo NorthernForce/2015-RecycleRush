@@ -8,40 +8,37 @@
  */
 
 
-//Probably unnecessary
-static const int kBallDataPort = 1726;
-
 enum XBoxJoystickButtonPort
 {
-	// New mappings starting in 2015
-	kXBoxButtonA = 0,
-	kXBoxButtonB = 1,
-	kXBoxButtonX = 2,
-	kXBoxButtonY = 3,
-	kXBoxButtonLeft = 4,
-	kXBoxButtonRight = 5,
-	kXBoxButtonBack = 6,
-	kXBoxButtonStart = 7,
-	kXBoxButtonLeftJoystick = 8,
-	kXBoxButtonRightJoystick = 9,
+	// Mappings are 1 based, unlike 2015 and beyond
+	kXBoxButtonA = 1,
+	kXBoxButtonB = 2,
+	kXBoxButtonX = 3,
+	kXBoxButtonY = 4,
+	kXBoxButtonLeft = 5,
+	kXBoxButtonRight = 6,
+	kXBoxButtonBack = 7,
+	kXBoxButtonStart = 8,
+	kXBoxButtonLeftJoystick = 9,
+	kXBoxButtonRightJoystick = 10,
 };
 
 
 
 enum Attack3JoystickPort
 {
- 	kAttackJoystickButtonTrigger = 0,
- 	kAttackJoystickButton2 = 1,
- 	kAttackJoystickButton3 = 2,
- 	kAttackJoystickButton4 = 3,
- 	kAttackJoystickButton5 = 4,
- 	kAttackJoystickButton6 = 5,
- 	kAttackJoystickButton7 = 6,
- 	kAttackJoystickButton8 = 7,
- 	kAttackJoystickButton9 = 8,
- 	kAttackJoystickButton10 = 9,
- 	kAttackJoystickButton11 = 10,
-	kAttackJoystickButton12 = 11,
+ 	kAttackJoystickButtonTrigger = 1,
+ 	kAttackJoystickButton2 = 2,
+ 	kAttackJoystickButton3 = 3,
+ 	kAttackJoystickButton4 = 4,
+ 	kAttackJoystickButton5 = 5,
+ 	kAttackJoystickButton6 = 6,
+ 	kAttackJoystickButton7 = 7,
+ 	kAttackJoystickButton8 = 8,
+ 	kAttackJoystickButton9 = 9,
+ 	kAttackJoystickButton10 = 10,
+ 	kAttackJoystickButton11 = 11,
+	kAttackJoystickButton12 = 12,
 };
 
 enum TalonCANAdress
@@ -65,8 +62,8 @@ enum TalonCANAdress
 
 enum JoystickPort
 {
-    kDriverStickPort = 0,
-    kManipulatorStickPort = 1,
+    kDriverStickPort = 1,
+    kManipulatorStickPort = 2,
 	//kXBoxManipulatorPort = 1,
 };
 
